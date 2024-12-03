@@ -14,14 +14,14 @@ export const calculateInvestmentResults = ({
     duration,
   } : InvestmentData) => {
     const annualData = [];
-    let investmentValue = initialInvestment;
+    let investmentValue = +initialInvestment;
   
     for (let i = 0; i < duration; i++) {
       let interestEarnedInYear = investmentValue * (expectedReturn / 100);
       if (Number.isNaN(interestEarnedInYear)) {
         interestEarnedInYear = 1;
       }
-      investmentValue += interestEarnedInYear + annualInvestment;
+      investmentValue += +interestEarnedInYear + +annualInvestment;
       annualData.push({
         year: i + 1, // year identifier
         interest: formatDecimals(interestEarnedInYear), // the amount of interest earned in this year
