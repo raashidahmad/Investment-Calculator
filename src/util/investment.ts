@@ -21,13 +21,21 @@ export const calculateInvestmentResults = ({
       investmentValue += interestEarnedInYear + annualInvestment;
       annualData.push({
         year: i + 1, // year identifier
-        interest: interestEarnedInYear, // the amount of interest earned in this year
-        valueEndOfYear: investmentValue, // investment value at end of year
-        annualInvestment: annualInvestment, // investment added in this year
+        interest: formatDecimals(interestEarnedInYear), // the amount of interest earned in this year
+        valueEndOfYear: formatDecimals(investmentValue), // investment value at end of year
+        annualInvestment: formatDecimals(annualInvestment), // investment added in this year
       });
     }
   
     return annualData;
+  }
+
+  export const formatDecimals = (num: number) => {
+    if (!num || Number.isNaN(num)) {
+        return 0;
+    }
+
+    return Number(num).toFixed(2);
   }
   
   // The browser-provided Intl API is used to prepare a formatter object

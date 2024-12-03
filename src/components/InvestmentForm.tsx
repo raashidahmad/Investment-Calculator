@@ -18,7 +18,7 @@ export const InvestmentForm = ({
             duration: 0
         }
     });
-    const { handleSubmit, register, formState, setValue } = methods;
+    const { handleSubmit, register } = methods;
 
     const onSubmit = handleSubmit(async (data) => {
         console.log(data);
