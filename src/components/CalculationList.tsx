@@ -1,4 +1,5 @@
 import { InvestmentResult } from "../types/InvestmentResult";
+import { formatter } from "../util/investment";
 
 export const CalculationList = ({ results }: any) => {
     let totalInterest = 0;
@@ -19,10 +20,10 @@ export const CalculationList = ({ results }: any) => {
                     totalInterest += result.interest;
                     return (<tr key={index}>
                         <td>{result.year}</td>
-                        <td>{result.valueEndOfYear}</td>
-                        <td>{result.interest}</td>
-                        <td>{result.totalInterest}</td>
-                        <td>{result.annualInvestment}</td>
+                        <td>{formatter.format(result.valueEndOfYear)}</td>
+                        <td>{formatter.format(result.interest)}</td>
+                        <td>{formatter.format(result.totalInterest)}</td>
+                        <td>{formatter.format(result.annualInvestment)}</td>
                     </tr>);
                 })}
             </tbody>
