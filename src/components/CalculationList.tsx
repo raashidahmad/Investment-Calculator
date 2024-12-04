@@ -1,7 +1,7 @@
-import { InvestmentResult } from "../types/InvestmentResult";
+import { InvestmentResult, InvestmentResultProps } from "../types/InvestmentResult";
 import { formatter } from "../util/investment";
 
-export const CalculationList = ({ results }: any) => {
+export const CalculationList = ({ results }: InvestmentResult) => {
     let totalInterest = 0;
 
     return (
@@ -17,7 +17,7 @@ export const CalculationList = ({ results }: any) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {results.map((result: InvestmentResult, index: number) => {
+                        {results.map((result: InvestmentResultProps, index: number) => {
                             totalInterest += result.interest;
                             return (<tr key={index}>
                                 <td>{result.year}</td>
